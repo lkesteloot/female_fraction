@@ -42,7 +42,7 @@ def main():
         persons.append(Person(FEMALE, random.randint(0, MIN_BABY_AGE)))
 
     # Header for the Plotter program.
-    print "Year [domain]\tPopulation\tRatio [right]"
+    print("Year [domain]\tPopulation\tRatio [right]")
 
     # Run the simulation.
     for year in range(NUM_YEARS):
@@ -56,11 +56,11 @@ def main():
         ratio = num_females/len(persons)
 
         if False:
-            print "%d total, %d male, %d female" % (
-                    len(persons), num_males, num_females)
+            print("%d total, %d male, %d female" % (
+                    len(persons), num_males, num_females))
 
         # Data for the Plotter program.
-        print year, len(persons), ratio
+        print(year, len(persons), ratio)
 
         # Find all single people.
         single_males = set(p for p in persons if p.sex == MALE and

@@ -2,14 +2,14 @@
 # http://www.thebigquestions.com/2010/12/27/win-landsburgs-money/
 
 import random
+import sys
 
 # The number of simulated runs.
 NUM_RUNS = 3000
 
-# Try 1, 4, and 100:
-NUM_FAMILIES = 1
+def go(num_families):
+    # sys.stderr.write("%d\n" % num_families)
 
-def main():
     # Average of all the runs.
     total_fraction_female = 0
 
@@ -20,7 +20,7 @@ def main():
         num_girls = 0
 
         # Simulate each family having children until they have a boy.
-        for family in range(NUM_FAMILIES):
+        for family in range(num_families):
             # They keep trying.
             while True:
                 # 50% chance of having a boy.
@@ -41,7 +41,12 @@ def main():
     # Divide by the number of runs we had.
     total_fraction_female /= NUM_RUNS
 
-    print "Expected fraction of females: %.5f%%" % (total_fraction_female*100)
+    print("%d %g" % (num_families, total_fraction_female*100))
+
+def main():
+    print("Families [domain]\tFraction female")
+    for num_families in range(1, 11):
+        go(num_families)
 
 if __name__ == "__main__":
     main()
